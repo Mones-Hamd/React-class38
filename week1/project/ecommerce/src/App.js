@@ -1,32 +1,31 @@
 import './App.css';
 import CategoryList from './components/CategoryList';
-import Items from './components/Items';
+import Products from './components/Products';
 import { useEffect, useState } from 'react';
 import categoriesTitle from './fake-data/all-categories';
 import productsItems from './fake-data/all-products';
 
 function App() {
-  const [products, setItem] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState([]);
 
-  const onClick = (category) => {
-    filterProduct(category);
-  };
-  const filterProduct = (category) => {
+  useEffect(() => {
     const allProducts = productsItems;
     const result = allProducts.filter(
       (product) => product.category === category,
     );
-    setItem(result);
-  };
+    setProducts(result);
+  }, [category]);
+
   useEffect(() => {
-    setItem(productsItems);
+    setProducts(productsItems);
   }, []);
 
   return (
     <div className="App">
       <h1>Products</h1>
-      <CategoryList categories={categoriesTitle} onClick={onClick} />
-      <Items products={products} />
+      <CategoryList categories={categoriesTitle} onClick={setCategory} />
+      <Products products={products} />
     </div>
   );
 }

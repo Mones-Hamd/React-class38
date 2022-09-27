@@ -1,7 +1,6 @@
 import React from 'react';
-//import allProducts from '../fake-data/all-products';
 
-const Items = ({ products }) => {
+const Products = ({ products }) => {
   return (
     <div className="container">
       {products.map(({ id, title, image }) => (
@@ -18,4 +17,4 @@ const Items = ({ products }) => {
   );
 };
 
-export default Items;
+export default Products;

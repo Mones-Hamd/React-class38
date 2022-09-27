@@ -1,7 +1,5 @@
 import React from 'react';
-// import { useState } from 'react';
-// import categoryTitle from '../fake-data/all-categories';
-// import products from '../fake-data/all-products';
+
 import Category from './Category';
 
 const CategoryList = ({ categories, onClick }) => {
