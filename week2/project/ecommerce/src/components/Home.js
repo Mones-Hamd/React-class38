@@ -12,17 +12,19 @@ function Home() {
   const fetchData = async (url) => {
     try {
       const response = await fetch(url);
-      return response.json();
+      const data = await response.json();
+      return data;
     } catch (err) {
       console.log(err);
       setError(true);
     }
   };
   useEffect(() => {
+    const url = category
+      ? `https://fakestoreapi.com/products/category/${category}`
+      : 'https://fakestoreapi.com/products';
     (async () => {
-      const filterdProducts = await fetchData(
-        `https://fakestoreapi.com/products/category/${category}`,
-      );
+      const filterdProducts = await fetchData(url);
       setProducts(filterdProducts);
     })();
   }, [category]);
@@ -32,11 +34,11 @@ function Home() {
       const categories = await fetchData(
         `https://fakestoreapi.com/products/categories`,
       );
-      setCategories(categories);
 
       const products = await fetchData(`https://fakestoreapi.com/products`);
-      setProducts(products);
       setIsLoading(false);
+      setProducts(products);
+      setCategories(categories);
     })();
   }, []);
 
