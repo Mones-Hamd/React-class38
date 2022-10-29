@@ -1,12 +1,12 @@
 import { createContext, useState } from 'react';
 export const FavouriteContext = createContext();
 export const FavouriteProvider = (props) => {
-  const [favourites, setFavourits] = useState([]);
+  const [favourites, setFavourites] = useState([]);
   const addToFavourites = (product) => {
-    setFavourits([...favourites, product]);
+    setFavourites([...favourites, product]);
   };
   const removeFromFavourites = (id) => {
-    setFavourits(favourites.filter((favourite) => favourite.id !== id));
+    setFavourites(favourites.filter((favourite) => favourite.id !== id));
   };
 
   const data = { favourites, addToFavourites, removeFromFavourites };

@@ -8,7 +8,7 @@ const FavouritePage = () => {
   const { favourites } = useContext(FavouriteContext);
   return (
     <div className="container">
-      <Navbar title={'Favourit'} />
+      <Navbar title={'Favourites'} />
       {favourites.length > 0 ? (
         favourites.map((product) => (
           <div className="item-card" key={product.id}>

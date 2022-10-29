@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import ProductDetails from './components/ProductDetailes/ProductDetails';
-import Navbar from './components/Navbar';
 import { FavouriteProvider } from './context/FavouriteContext';
 import FavouritePage from './components/Products/FavouritePage';
 
@@ -13,7 +12,6 @@ function App() {
         <>
           <Router>
             <Routes>
-              <Route path="/favourite" element={<Navbar />} />
               <Route path="/" element={<Home />} />
               <Route path="/product/:id" element={<ProductDetails />} />
               <Route path="/product/favourite" element={<FavouritePage />} />
